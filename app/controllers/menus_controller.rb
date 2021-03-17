@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  before_action :authenticate_admin
   before_action :set_menu, only: %i[ show edit update destroy ]
 
   # GET /menus or /menus.json
@@ -64,6 +65,10 @@ class MenusController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def menu_params
-      params.require(:menu).permit(:name)
+      params.require(:menu).permit(:name, menu_items_attributes: [:id, :title, :description, :price, :_destroy])
+    end
+
+    def authenticate_admin
+      redirect_to root_path unless current_user.try(:admin?)
     end
 end

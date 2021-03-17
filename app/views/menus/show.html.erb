@@ -5,5 +5,22 @@
   <%= @menu.name %>
 </p>
 
+<p>
+  <table>
+    <tr>
+      <td>Menu Title</td>
+      <td>Menu Description</td>
+      <td>Menu Price</td>
+    </tr>
+    <% @menu.menu_items.each do |menu_item| %>
+    <tr>
+      <td><%= menu_item.title %></td>
+      <td><%= menu_item.description %></td>
+      <td><%= menu_item.price %></td>
+    </tr>
+    <% end %>
+  </table>
+</p>
+
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>

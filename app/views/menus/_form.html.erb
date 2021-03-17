@@ -16,6 +16,14 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <legend>Menu Items:</legend>
+    <%= form.fields_for :menu_items do |menu_items_form| %>
+        <%= render "/menus/menu_item_fields", form: menu_items_form %>
+    <% end %>
+    <%= link_to_add_fields "Add Menu Items", form, :menu_items %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
