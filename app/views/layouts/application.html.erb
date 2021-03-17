@@ -8,11 +8,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'nested/addField', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'nested/removeField', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render '/shared/authentication' %>
     <%= render '/shared/message' %>
+    <%= render '/shared/menu' %>
     <%= yield %>
   </body>
 </html>
